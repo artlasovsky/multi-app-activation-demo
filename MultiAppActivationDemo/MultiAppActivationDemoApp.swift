@@ -105,8 +105,4 @@ class MultiAppWindow: NSPanel {
     override func cancelOperation(_ sender: Any?) {
         close()
     }
-    
-    override func close() {
-        super.close()
-    }
 }
