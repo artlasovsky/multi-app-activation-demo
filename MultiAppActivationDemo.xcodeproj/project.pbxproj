@@ -3,18 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
-
-/* Begin PBXBuildFile section */
-		D772EAC82B751FEF005BF70E /* MultiAppActivationDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D772EAC72B751FEF005BF70E /* MultiAppActivationDemoApp.swift */; };
-/* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D772EAC42B751FEF005BF70E /* MultiAppActivationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiAppActivationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D772EAC72B751FEF005BF70E /* MultiAppActivationDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiAppActivationDemoApp.swift; sourceTree = "<group>"; };
-		D772EAD02B751FF0005BF70E /* MultiAppActivationDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiAppActivationDemo.entitlements; sourceTree = "<group>"; };
+		D7849AC12D120513002E6949 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D7849ABE2D1204E6002E6949 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MultiAppActivationDemoApp.swift,
+			);
+			target = D772EAC32B751FEF005BF70E /* MultiAppActivationDemo */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D7849ABC2D1204E6002E6949 /* MultiAppActivationDemo */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D7849ABE2D1204E6002E6949 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = MultiAppActivationDemo; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D772EAC12B751FEF005BF70E /* Frameworks */ = {
@@ -30,8 +39,9 @@
 		D772EABB2B751FEF005BF70E = {
 			isa = PBXGroup;
 			children = (
-				D772EAC62B751FEF005BF70E /* MultiAppActivationDemo */,
+				D7849ABC2D1204E6002E6949 /* MultiAppActivationDemo */,
 				D772EAC52B751FEF005BF70E /* Products */,
+				D7849AC12D120513002E6949 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -41,15 +51,6 @@
 				D772EAC42B751FEF005BF70E /* MultiAppActivationDemo.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		D772EAC62B751FEF005BF70E /* MultiAppActivationDemo */ = {
-			isa = PBXGroup;
-			children = (
-				D772EAC72B751FEF005BF70E /* MultiAppActivationDemoApp.swift */,
-				D772EAD02B751FF0005BF70E /* MultiAppActivationDemo.entitlements */,
-			);
-			path = MultiAppActivationDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,7 +121,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D772EAC82B751FEF005BF70E /* MultiAppActivationDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
