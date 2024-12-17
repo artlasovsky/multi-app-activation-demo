@@ -10,13 +10,14 @@ import SwiftUI
 /// Empty App without any windows
 @main
 struct MultiAppActivationDemoApp: App {
-    @NSApplicationDelegateAdaptor private var delegate: MultiAppDelegate
-    
-    var body: some Scene {
-        Settings {
-            Text("Settings")
-        }
-    }
+	@NSApplicationDelegateAdaptor private var delegate: MultiAppDelegate
+	
+	var body: some Scene {
+		Settings {
+			Text("Settings")
+				.frame(width: 200, height: 200)
+		}
+	}
 }
 
 // MARK: - App Delegate
@@ -36,10 +37,29 @@ class MultiAppDelegate: NSObject, NSApplicationDelegate {
         NSApp.setActivationPolicy(.prohibited)
     }
     
-    func applicationDidFinishLaunching(_ notification: Notification) {
-        NSApp.setActivationPolicy(.regular)
-        showLauncher()
-    }
+	func applicationDidFinishLaunching(_ notification: Notification) {
+		NSApp.setActivationPolicy(.regular)
+		showLauncher()
+		observeWindowDidClose()
+	}
+	
+	/// Don’t hide the app when one of these windows is open.
+	private let excludedWindowIdentifiers: [NSUserInterfaceItemIdentifier] = [
+		.init("com_apple_SwiftUI_Settings_window")
+	]
+	
+	private func observeWindowDidClose() {
+		Task {
+			for await window in NotificationCenter.default.notifications(named: NSWindow.willCloseNotification).map({ $0.object as? NSWindow }) {
+				await MainActor.run {
+					if NSApp.windows.filter({ $0.isVisible }).compactMap({ $0.identifier }).contains(excludedWindowIdentifiers) {
+						return
+					}
+					NSApp.hide(window)
+				}
+			}
+		}
+	}
 }
 
 extension MultiAppDelegate {
@@ -88,6 +108,5 @@ class MultiAppWindow: NSPanel {
     
     override func close() {
         super.close()
-        NSApp.hide(self)
     }
 }
